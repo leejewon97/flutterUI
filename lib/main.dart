@@ -17,6 +17,7 @@ class App extends StatelessWidget {
             horizontal: 16.0,
           ),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(
                 height: 32.0,
@@ -44,6 +45,24 @@ class App extends StatelessWidget {
                     ],
                   ),
                 ],
+              ),
+              const SizedBox(
+                height: 36.0,
+              ),
+              Text(
+                'Total Balance',
+                style: TextStyle(
+                  color: Colors.white.withOpacity(0.5),
+                  fontSize: 20.0,
+                ),
+              ),
+              const Text(
+                '\$1 234 567',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 36.0,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ],
           ),
