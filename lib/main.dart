@@ -64,6 +64,26 @@ class App extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
+              const SizedBox(
+                height: 10,
+              ),
+              Container(
+                padding: const EdgeInsets.symmetric(
+                  vertical: 16.0,
+                  horizontal: 40.0,
+                ),
+                decoration: BoxDecoration(
+                  color: const Color(0xFFF2B33A),
+                  borderRadius: BorderRadius.circular(40),
+                ),
+                child: const Text(
+                  'Transfer',
+                  style: TextStyle(
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
             ],
           ),
         ),
