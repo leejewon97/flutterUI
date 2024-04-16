@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,7 +13,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: const Color(0xFF1E1E1E),
+        backgroundColor: const Color(0xFF181818),
         body: Padding(
           padding: const EdgeInsets.symmetric(
             horizontal: 16.0,
@@ -67,22 +69,31 @@ class App extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              Container(
-                padding: const EdgeInsets.symmetric(
-                  vertical: 16.0,
-                  horizontal: 40.0,
-                ),
-                decoration: BoxDecoration(
-                  color: const Color(0xFFF2B33A),
-                  borderRadius: BorderRadius.circular(40),
-                ),
-                child: const Text(
-                  'Transfer',
-                  style: TextStyle(
-                    fontSize: 16.0,
-                    fontWeight: FontWeight.w500,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  CustomButton(
+                    decorationColor: const Color(0xFFF2B33A),
+                    child: const Text(
+                      'Transfer',
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
                   ),
-                ),
+                  CustomButton(
+                    decorationColor: Colors.grey[900],
+                    child: const Text(
+                      'Request',
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
@@ -90,4 +101,22 @@ class App extends StatelessWidget {
       ),
     );
   }
+}
+
+class CustomButton extends Container {
+  CustomButton({
+    super.key,
+    required Widget child,
+    required decorationColor,
+  }) : super(
+          padding: const EdgeInsets.symmetric(
+            vertical: 16.0,
+            horizontal: 40.0,
+          ),
+          decoration: BoxDecoration(
+            color: decorationColor,
+            borderRadius: BorderRadius.circular(40),
+          ),
+          child: child,
+        );
 }
