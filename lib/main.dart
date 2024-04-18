@@ -1,6 +1,5 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
+import 'package:toonflix/widgets/custom_button.dart';
 
 void main() {
   runApp(const App());
@@ -72,26 +71,15 @@ class App extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  CustomButton(
-                    decorationColor: const Color(0xFFF2B33A),
-                    child: const Text(
-                      'Transfer',
-                      style: TextStyle(
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
+                  const CustomButton(
+                    backgroundColor: Color(0xFFF2B33A),
+                    textData: 'Transfer',
+                    textColor: Colors.black,
                   ),
                   CustomButton(
-                    decorationColor: Colors.grey[900],
-                    child: const Text(
-                      'Request',
-                      style: TextStyle(
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.white,
-                      ),
-                    ),
+                    backgroundColor: Colors.grey[900],
+                    textData: 'Request',
+                    textColor: Colors.white,
                   ),
                 ],
               ),
@@ -101,22 +89,4 @@ class App extends StatelessWidget {
       ),
     );
   }
-}
-
-class CustomButton extends Container {
-  CustomButton({
-    super.key,
-    required Widget child,
-    required decorationColor,
-  }) : super(
-          padding: const EdgeInsets.symmetric(
-            vertical: 16.0,
-            horizontal: 40.0,
-          ),
-          decoration: BoxDecoration(
-            color: decorationColor,
-            borderRadius: BorderRadius.circular(40),
-          ),
-          child: child,
-        );
 }
