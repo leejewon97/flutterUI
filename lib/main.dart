@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:toonflix/widgets/custom_button.dart';
+import 'package:toonflix/widgets/money_card.dart';
 
 void main() {
   runApp(const App());
@@ -109,67 +110,24 @@ class App extends StatelessWidget {
               const SizedBox(
                 height: 16.0,
               ),
-              Container(
-                clipBehavior: Clip.hardEdge,
-                padding: const EdgeInsets.all(24.0),
-                decoration: BoxDecoration(
-                  color: Colors.grey[900],
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text(
-                          'Euro',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 24.0,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 12.0,
-                        ),
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            const Text(
-                              '6 248',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16.0,
-                              ),
-                            ),
-                            const SizedBox(
-                              width: 12.0,
-                            ),
-                            Text(
-                              'EUR',
-                              style: TextStyle(
-                                color: Colors.white.withOpacity(0.5),
-                                fontSize: 12.0,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                    Transform.translate(
-                      offset: const Offset(4, 20),
-                      child: Transform.scale(
-                        scale: 4,
-                        child: const Icon(
-                          Icons.euro_rounded,
-                          color: Colors.white,
-                          size: 36.0,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+              const MoneyCard(
+                name: 'Euro',
+                amount: '6 248',
+                code: 'EUR',
+                icon: Icons.euro_symbol,
+              ),
+              const MoneyCard(
+                name: 'Dollar',
+                amount: '55 622',
+                code: 'USD',
+                icon: Icons.attach_money,
+                isInvert: true,
+              ),
+              const MoneyCard(
+                name: 'Bitcoin',
+                amount: '28',
+                code: 'BTC',
+                icon: Icons.currency_bitcoin,
               ),
             ],
           ),
