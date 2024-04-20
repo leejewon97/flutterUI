@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:toonflix/widgets/custom_button.dart';
 import 'package:toonflix/widgets/money_card.dart';
 
@@ -7,8 +6,21 @@ void main() {
   runApp(const App());
 }
 
-class App extends StatelessWidget {
+class App extends StatefulWidget {
   const App({super.key});
+
+  @override
+  State<App> createState() => _AppState();
+}
+
+class _AppState extends State<App> {
+  bool viewAll = false;
+
+  void onPressed() {
+    setState(() {
+      viewAll = !viewAll;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -101,10 +113,13 @@ class App extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    Text(
-                      'View All',
-                      style: TextStyle(
-                        color: Colors.white.withOpacity(0.5),
+                    GestureDetector(
+                      onTap: onPressed,
+                      child: Text(
+                        viewAll ? 'View Less' : 'View All',
+                        style: TextStyle(
+                          color: Colors.white.withOpacity(0.5),
+                        ),
                       ),
                     ),
                   ],
@@ -118,20 +133,20 @@ class App extends StatelessWidget {
                   code: 'EUR',
                   icon: Icons.euro_symbol,
                 ),
-                const MoneyCard(
+                MoneyCard(
                   name: 'Dollar',
                   amount: '55 622',
                   code: 'USD',
                   icon: Icons.attach_money,
                   isInvert: true,
-                  offset: Offset(0, -24),
+                  offset: Offset(0, viewAll ? 0 : -24),
                 ),
-                const MoneyCard(
+                MoneyCard(
                   name: 'Bitcoin',
                   amount: '28',
                   code: 'BTC',
                   icon: Icons.currency_bitcoin,
-                  offset: Offset(0, -48),
+                  offset: Offset(0, viewAll ? 0 : -48),
                 ),
               ],
             ),
