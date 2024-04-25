@@ -115,12 +115,14 @@ class _AppState extends State<App> {
                     ),
                     GestureDetector(
                       onTap: onPressed,
-                      child: Text(
-                        viewAll ? 'View Less' : 'View All',
-                        style: TextStyle(
-                          color: Colors.white.withOpacity(0.5),
-                        ),
-                      ),
+                      child: viewAll
+                          ? const TextWidget()
+                          : Text(
+                              'View All',
+                              style: TextStyle(
+                                color: Colors.white.withOpacity(0.5),
+                              ),
+                            ),
                     ),
                   ],
                 ),
@@ -152,6 +154,40 @@ class _AppState extends State<App> {
             ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+class TextWidget extends StatefulWidget {
+  const TextWidget({
+    super.key,
+  });
+
+  @override
+  State<TextWidget> createState() => _TextWidgetState();
+}
+
+class _TextWidgetState extends State<TextWidget> {
+  @override
+  void initState() {
+    super.initState();
+    print('initState');
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    print('dispose');
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    print('build');
+    return Text(
+      'View Less',
+      style: TextStyle(
+        color: Colors.white.withOpacity(0.5),
       ),
     );
   }
